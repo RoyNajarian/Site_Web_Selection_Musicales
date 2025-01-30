@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr"> <!-- Spécifie la langue, ici francaise -->
+
+<!-- En tête de la page  -->
+<head>
+    <meta charset="UTF-8"> <!-- Encodage des caractères en UTF8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css"> <!-- Lien vers le css de la page -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css" integrity="sha512-5Hs3dF2AEPkpNAR7UiOHba+lRSJNeM2ECkwxUIxC1Q/FLycGTbNapWXB4tP889k5T5Ju8fs4b1P5z/iB4nMfSQ==" crossorigin="anonymous" referrerpolicy="no-referrer"/> <!-- Bibliothèque d'icônes FontAwesome  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"> <!-- Police de Google -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Police de Google -->
+    <link rel="icon" href="images/Icon_Disque.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet"> <!-- Police de Google -->
+    <title>Selection Musicales</title> <!-- Titre de la page -->
+</head>    
+
+<!-- Le corps de la page  -->
+<body>
+    <!-- En tête contenant la barre de navigation et des images -->
+    <header>
+        <nav class="navbar"> <!-- Menu de navigation -->
+            <div class="logo">
+                <img src="images/NextDrill.png" alt="Logo du site"> <!-- Logo du site -->
+            </div>
+            <div class="separator"></div> <!-- Séparateur visuel -->
+            <ul class="navigation"> <!-- Liste contenant des liens de navigation -->
+                <li><a href="#" data-target="Top des écoutes">Top des écoutes</a></li>
+                <li><a href="#" data-target="L'univers de Gazo">L'univers de Gazo</a></li>
+                <li><a href="#" data-target="Les featurings">Les featurings</a></li>
+            </ul>
+        </nav>
+
+        <!-- Permet de grouper les images -->
+        <div class="header-image">
+            <img src="images/Die_Crop.jpeg" alt="Disque d'or de la musique 'Die'">
+            <img src="images/Celine_Crop.jpeg" alt="Disque de platine de la musique 'Celine'">
+            <img src="images/Molly_Crop.jpeg" alt="Disque d'or de la musique 'Molly'">
+        </div>
+    </header>
+
+    <div class="liste-musiques"></div> <!-- "Div" vide où les musiques seront affichées -->
+
+    <button class="btnPopup" onclick="togglePopup()"><i class="fa-solid fa-pen-to-square"></i></button> <!-- Bouton permmetant d'ouvrir le popup -->
+
+    <!-- Formulaire pour ajouter une musique  -->
+    <div id="popup-overlay">
+        <div class="popup-content">
+            <form id="ajouteMusique">
+
+                <h2>Ajouter une nouvelle musique</h2>
+
+                <!-- Champ pour le titre de la musique -->
+                <label for="titre">Titre (15 caractères max)<span class="obligatoire">*</span></label>
+                <input type="text" id="titre" name="titre" maxlength="15" placeholder="Entrez le titre de la musique" required>
+                <br><br>
+                
+                <!-- Champ pour l'artiste -->
+                <label for="artist">Artiste (20 caractères max)<span class="obligatoire">*</span></label>
+                <input type="text" id="artist" name="artist" maxlength="20" placeholder="Entrez le nom de l'artiste" required>
+                <br><br>
+                
+                <!-- Champ pour le label -->
+                <label for="label">Label (20 caractères max)<span class="obligatoire">*</span></label>
+                <input type="text" id="label" name="label" maxlength="20" placeholder="Entrez le nom du label" required>
+                <br><br>
+                
+                <!-- Champ pour l'année -->
+                <label for="year">Année<span class="obligatoire">*</span></label>
+                <input type="number" id="year" name="year" min="1900" max="2100" placeholder="Entrez l'année de la musique" required>
+                <br><br>
+                
+                <!-- Champ pour la description -->
+                <label for="description">Description de la musique (140 caractères max)<span class="obligatoire">*</span></label>
+                <textarea id="description" name="description" maxlength="140" placeholder="Écrivez une description de la musique" required></textarea>
+                <br><br>
+                
+                <!-- Champ pour le choix -->
+                <label for="choix">Pourquoi avoir choisi cette musique (140 caractères max)<span class="obligatoire">*</span></label>
+                <textarea id="choix" name="choix" maxlength="140" placeholder="Expliquez pourquoi avoir choisi cette musique" required></textarea>
+                <br><br>
+
+                <!-- Champ pour l'URL Spotify -->
+                <label for="spotify">URL spotify<span class="obligatoire">*</span></label>
+                <input type="url" id="spotify" name="spotify" placeholder="Entrez l'URL Spotify de la musique" required>
+                <br><br>
+
+                <!-- Champ pour l'URL Deezer -->
+                <label for="deezer">URL deezer<span class="obligatoire">*</span></label>
+                <input type="url" id="deezer" name="deezer" placeholder="Entrez l'URL Deezer de la musique" required>
+                <br><br>
+
+                <!-- Champ pour l'URL YouTube -->
+                <label for="ytb">URL ytb<span class="obligatoire">*</span></label>
+                <input type="url" id="ytb" name="ytb" placeholder="Entrez l'URL Youtube de la musique" required>
+                <br><br>
+                
+                <!-- Champ pour la catégorie -->
+                <label for="category">Catégorie (Par défaut)</label>
+                <select id="category" name="category">
+                    <option value="Top des écoutes">Top des écoutes</option>
+                    <option value="L'univers de Gazo">L'univers de Gazo</option>
+                    <option value="Les featurings">Les featurings</option>
+                </select>
+                <span>Veuillez choisir la catégorie dans laquelle la musique va apparaître</span>
+                <br><br>
+                
+                <!-- Champ pour télécharger l'audio --> 
+                <label for="audioFile">Fichier audio<span class="obligatoire">*</span></label> 
+                <input type="file" id="audioFile" name="audioFile" accept="audio/*" required>
+                <span>Veuillez déposer un fichier audio au format mp3</span>
+                <br><br> 
+                
+                <!-- Champ pour télécharger l'image --> 
+                <label for="imageFile">Fichier image<span class="obligatoire">*</span></label> 
+                <input type="file" id="imageFile" name="imageFile" accept="image/*" required>
+                <span>Veuillez déposer une image aux proportions égales</span>
+                <br><br>
+                
+                <button type="button" onclick="togglePopup()" id="submitButton">Ajouter la musique</button> <!-- Bouton pour valider et fermer le popup -->
+            </form>
+            <a href="javascript:void(0)" onclick="togglePopup()" class="popup-exit">Fermer</a> <!-- Permet de fermer le popup -->
+        </div>
+    </div>
+
+    <img class="nextDrillEnd" src="images/NextDrill.png" alt=""> <!-- Images du logo NextDrill pour décorer -->
+
+    <!-- Footer de la page -->
+    <footer class="credit">
+        
+        <!-- Titre principal -->
+        <h3>Crédits et informations <i class="fa-solid fa-chevron-down" style="color: #ffffff;"></i></h3> 
+        
+        <div class="credit-content"> <!-- Conteneur pour le contenu des crédits -->
+            <h3>Crédits :</h3>
+            <p>Les musiques présentées sont interprétées par le rappeur <strong>Gazo</strong>.</p> 
+
+            <p>Les images et les liens musicaux sont issus de plateformes externes telles que :</p>
+            <ul> <!-- Liste non ordonnée des plateformes de streaming -->
+                <li><a href="https://www.spotify.com" title="Ouvrir Spotify" target="_blank">Spotify</a></li> <!-- Lien vers Spotify -->
+                <li><a href="https://www.deezer.com" title="Ouvrir Deezer" target="_blank">Deezer</a></li> <!-- Lien vers Deezer -->
+                <li><a href="https://www.youtube.com" title="Ouvrir YouTube" target="_blank">YouTube</a></li> <!-- Lien vers YouTube -->
+            </ul>
+            
+            <p>Voici les chaînes YouTube qui m'ont été utiles pour la création de ce site :</p>
+            <ul> <!-- Liste non ordonnée des chaînes YouTube -->
+                <li><a href="https://youtube.com/@akdevyt?si=L_yon3poJ_BYSXqW" title="Ouvrir sa chaîne YouTube" target="_blank">AK DEV</a></li> <!-- Lien vers sa chaîne -->
+                <li><a href="https://youtube.com/@codehal?si=3gG2Eltt8URALxKx" title="Ouvrir sa chaîne YouTube" target="_blank">Codehal</a></li> <!-- Lien vers sa chaîne -->
+                <li><a href="https://youtube.com/@livecodeofficiel?si=qSHZyQ6sMQLvKixY" title="Ouvrir sa chaîne YouTube" target="_blank">LiveCode</a></li> <!-- Lien vers sa chaîne -->
+                <li><a href="https://youtube.com/@ecoleduweb?si=6EUxgXLIzoYx5jn0" title="Ouvrir sa chaîne YouTube" target="_blank">École du Web</a></li> <!-- Lien vers sa chaîne -->
+            </ul>
+            <p>Les contenus présents sur ce site sont la propriété de leurs auteurs respectifs. Il est impératif d'obtenir leur autorisation pour toute reproduction.</p> <!-- Avertissement légal sur les droits d'auteur -->
+
+            <h3>Informations :</h3>
+            <p><strong>Philippe Gambette</strong> est l'auteur de l'API que nous utilisons. Toutes les données lui seront donc envoyées.</p>
+            <p>Le développement du site a été réalisé par <strong>Roy Najarian</strong>.</p>
+
+            <h3>Nous contacter :</h3>
+            <p>Pour toute question liée à vos données, veuillez contacter : <strong>philippe.gambette@univ-eiffel.fr</strong>.</p> <!-- Adresse email pour les questions liées aux données -->
+            <p>Pour toute autre question, veuillez contacter : <strong>roynajarian@gmail.com</strong></p> <!-- Adresse email pour d'autres questions -->
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script> <!-- Permet de chargé le fichier javascript -->
+</body>
+</html>

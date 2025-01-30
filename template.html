@@ -1,0 +1,35 @@
+<section class="category" data-category="{{categorie}}"> <!-- atégorie de musique -->
+    <div class="music"> <!-- Conteneur principal pour une musique -->
+        <img src="{{image}}" alt="Illustration de la musique" class="illustration"> <!-- Image de la musique -->
+
+        <!-- Conteneur pour le contenu associé à la musique -->
+        <div class="section-content">
+            <div class="section-header"> <!-- Contient le titre et le bouton -->
+                <h2>{{musique}}</h2>
+                <audio class="audio">
+                    <source src="{{extraitAudio}}" type="audio/mpeg">
+                </audio>
+                <button class="playPause">⏵</button> <!-- Bouton pour lancer ou mettre en pause -->
+            </div>
+
+            <div class="Streaming"> <!-- Plateformes de streaming -->
+                <a href="{{Spotify}}" title="Écouter sur Spotify" target="_blank"><i class="fa-brands fa-spotify"></i></a>
+                <a href="{{Deezer}}" title="Écouter sur Deezer" target="_blank"><i class="fa-brands fa-deezer"></i></a>
+                <a href="{{ytb}}" title="Voir sur YouTube" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+
+        <div class="dropdown-container"> <!-- Conteneur pour la partie déroulante -->
+            <i class="fa-solid fa-chevron-down dropdown-toggle"></i> <!-- Icône pour ouvrir le menu déroulant -->
+
+            <div class="dropdown-content"> <!-- Contenu du menu déroulant avec les autres informations -->
+                <p><strong>Artiste :</strong> {{artiste}}</p>
+                <p><strong>Label :</strong> {{label}}</p>
+                <p><strong>Année :</strong> {{annee}}</p> 
+                <p><strong>Description :</strong> {{description}}</p>
+                <p><strong>Choix :</strong> {{choix}}</p>
+            </div>
+        </div>
+        
+    </div>
+</section>

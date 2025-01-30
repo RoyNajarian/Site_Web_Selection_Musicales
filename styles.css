@@ -1,0 +1,517 @@
+/* Styles pour la page */
+body {
+    margin: 0; /* Retire les marges par défaut du body */
+    padding: 0;  /* Retire les espaces intérieurs par défaut du body */
+    font-family: 'Space Grotesk', sans-serif; /* Définit une police */
+    /* Applique un fond qui provient du site Gradient Magic */
+    background-image: linear-gradient(216deg, rgba(77, 42, 122, 0.05) 0%, rgba(77, 42, 122, 0.05) 25%, rgba(42, 12, 77, 0.05) 25%, rgba(42, 12, 77, 0.05) 38%, rgba(223, 78, 243, 0.05) 38%, rgba(223, 78, 243, 0.05) 75%, rgba(36, 12, 77, 0.05) 75%, rgba(36, 12, 77, 0.05) 100%), linear-gradient(44deg, rgba(128, 62, 172, 0.05) 0%, rgba(128, 62, 172, 0.05) 34%, rgba(212, 151, 231, 0.05) 34%, rgba(212, 151, 231, 0.05) 57%, rgba(25, 14, 77, 0.05) 57%, rgba(25, 14, 77, 0.05) 89%, rgba(135, 77, 201, 0.05) 89%, rgba(135, 77, 201, 0.05) 100%), linear-gradient(241deg, rgba(55, 25, 100, 0.05) 0%, rgba(55, 25, 100, 0.05) 14%, rgba(209, 112, 215, 0.05) 14%, rgba(209, 112, 215, 0.05) 60%, rgba(245, 156, 245, 0.05) 60%, rgba(245, 156, 245, 0.05) 69%, rgba(164, 82, 168, 0.05) 69%, rgba(164, 82, 168, 0.05) 100%), linear-gradient(249deg, rgba(248, 211, 255, 0.05) 0%, rgba(248, 211, 255, 0.05) 32%, rgba(148, 87, 174, 0.05) 32%, rgba(148, 87, 174, 0.05) 35%, rgba(202, 112, 226, 0.05) 35%, rgba(202, 112, 226, 0.05) 51%, rgba(181, 108, 207, 0.05) 51%, rgba(181, 108, 207, 0.05) 100%), linear-gradient(92deg, hsl(250, 50%, 30%), hsl(250, 50%, 30%));
+}
+
+/* Navigation */
+.navbar {
+    position: fixed; /* Fixe la position de la navbar */
+    top: 2vh; /* Positionne la navbar */
+    left: 50%; /* Centre horizontalement la navbar */
+    transform: translateX(-50%); /* Ajuste pour parfaitement centrer */
+    width: 45vw; /* Définit la largeur en fonction de la fenêtre */
+    min-width: 705px; /* Définit la largeur minimale */
+    height: 9vh; /* Hauteur de la navbar */
+    min-height: 60px; /* Hauteur minimale pour les petits écrans */
+    background: rgba(255, 255, 255, 0.12); /* Couleur de fond transparente */
+    backdrop-filter: blur(8px); /* Effet de flou derrière la navbar */
+    border-radius: 1rem; /* Coins arrondis */
+    display: flex; /* Dispose les éléments en ligne */
+    align-items: center; /* Centre verticalement les éléments */
+    padding: 0 1.5%; /* Ajoute un espace intérieur sur les côtés */
+    z-index: 1000; /* Assure que la navbar est au-dessus de tous les autres élements */
+}
+
+/* Logo du site dans la navbar */
+.logo img {
+    height: 7vh; /* Taille proportionnelle à la hauteur de l'écran */
+    max-height: 70px; /* Limite maximale de hauteur */
+    min-height: 50px; /* Limite minimale de hauteur */
+    width: auto; /* Maintient les proportions de l'image */
+    padding-right: 2vh; /* Ajoute un espace à droite de l'image */
+}
+
+/* Séparateur visuel dans la navbar */
+.separator {
+    width: 1px; /* Petite valeur pour que la séparation soit fine */
+    height: 6vh; /* Hauteur proportionnelle à la navbar */
+    min-height: 40px; /* Limite minimale de hauteur */
+    max-height: 60px; /* Limite maximale de hauteur */
+    background-color: #fff; /* Couleur blanche */
+}
+
+/* Styles de la liste */
+.navigation {
+    list-style: none; /* Supprime les puces par défaut des listes */
+    display: flex; /* Dispose les éléments en ligne */
+    gap: 1rem; /* Réduit l'espacement entre les éléments */
+    padding: 0; /* Supprime les marges internes et permet de tout affiché sur la même ligne */
+    margin-left: 1rem; /* Espace entre la liste et la barre de séparation */
+}
+
+/* Styles des liens la liste */
+.navigation li a {
+    text-decoration: none; /* Supprime le soulignement des liens */
+    color: #fff; /* Couleur blanche pour le texte */
+    font-weight: bold;  /* Texte en gras */
+    font-size: 1rem; /* Taille du texte */
+    padding: 10px; /* Ajoute de l'espace intérieur aux liens */
+    transition: all 0.3s ease; /* Animation */
+}
+
+/* Styles des liens la liste lorsque qu'on les survoles */
+.navigation li a:hover {
+    font-size: 1.08rem; /* Agrandit légèrement le texte */
+    text-decoration: underline; /* Ajoute un soulignement */
+    transform: scale(1.1); /* Animation d'agrandissement */
+}
+
+/* Conteneur des images de disques */
+.header-image {
+    display: flex; /* Dispose les images en ligne */
+    justify-content: center; /* Centre les disques horizontalement */
+    align-items: center; /* Centre les disques verticalement */
+    gap: 5rem; /* Espace entre les disques */
+    margin-top: 8rem; /* Ajoute un espace au dessus */
+}
+
+/* Image du conteneur précédent */
+.header-image img {
+    width: 25%; /* Taille des disques */
+    border-radius: 50%; /* Rend les images circulaires */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre */
+}
+
+/* Contenue où les musiques seront affichées */
+.liste-musiques {
+    display: grid; /* Dispose les musiques sous forme de grille */
+    gap: 5vh; /* Espacement entre chaque catégorie */
+    padding: 5vh 5vw; /* Ajoute un espacement intérieur autour de la grille */
+}
+
+/* Conteneur pour une catégorie et ses musiques */
+.categorie {
+    flex-direction: column; /* Affiche les éléments verticalement */
+    gap: 0.5rem; /* Espacement entre les titres et les musiques */
+    padding: 1% 2% 2% 2%; /* Ajoute un espacement intérieur */
+    border: 1px solid #fff; /* Bordure blanche autour de chaque catégorie */
+    border-radius: 0.5rem; /* Coins arrondis */
+    background-color: rgba(0, 0, 0, 0.5); /* Fond semi-transparent noir */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre */
+}
+
+/* Titre d'une catégorie */
+.category-title {
+    font-size: 1.5rem; /* Taille du titre */
+    color: white; /* Couleur blanche */
+}
+
+/* Conteneur pour les musiques d'une catégorie */
+.music-list {
+    display: grid; /* Dispose les musiques sous forme de grille */
+    grid-template-columns: repeat(2, 1fr); /* Deux musiques par ligne */
+    gap: 5vh; /* Espacement entre chaque musique */
+}
+
+/* Conteneur pour une musique individuelle */
+.music {
+    display: flex; /* Aligne les éléments horizontalement */
+    width: 90%; /* Largeur proportionnelle au conteneur */
+    max-width: 600px; /* Largeur maximale fixe */
+    background-color: #5e239d; /* Fond violet */
+    border: 2px solid #fff; /* Bordure blanche */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 15px; /* Espacement intérieur */
+    margin: 20px auto; /* Espacement extérieur */
+    position: relative; /* Permet un positionnement absolu pour le chevron */
+    color: #fff; /* Couleur blanche pour le texte */
+    gap: 30px; /* Espacement entre l'image et les autres éléments */
+}
+
+/* Image des musique */
+.illustration {
+    width: 120px; /* Largeur de l'image */
+    height: 120px; /* Hauteur de l'image */
+    border-radius: 8px; /* Coins arrondis */
+    border: 1px solid #fff; /* Bordure blanche autour de l'image */
+}
+
+/* Conteneur pour le titre et bouton */
+.section-header {
+    display: flex; /* Dispose les éléments en ligne */
+    align-items: center; /* Aligne le bouton et le titre verticalement */
+    gap: 10px; /* Espace entre le titre et le bouton */
+}
+
+/* Titre de la section d'une musique */
+.section-header h2 {
+    font-size: 1.4em; /* Taille du titre */
+    color: #fff; /* Couleur blanche */
+}
+
+/* Bouton de lecture/pause */
+.section-header .playPause {
+    background-color: #007bff; /* Couleur bleue pour le bouton */
+    color: #fff; /* Couleur blanche pour l'icône */
+    border: none; /* Retire les bordures par défaut */
+    border-radius: 50%; /* Forme circulaire */
+    width: 40px; /* Largeur du bouton */
+    height: 40px; /* Hauteur du bouton */
+    font-size: 1.5em; /* Taille de l'icône */
+    cursor: pointer; /* Change le curseur au survol */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajoute une ombre */
+    transition: background-color 0.3s; /* Animation de la couleur de fond */
+}
+
+/* Bouton de lecture/pause lors du survol */
+.section-header .playPause:hover {
+    background-color: #0056b3; /* Change la couleur au survol */
+}
+
+/* Conteneur pour les icônes des plateformes de streaming */
+.Streaming {
+    display: flex; /* Aligne les logos en ligne */
+    gap: 20px; /* Espacement entre les logos */
+}
+
+/* Liens vers les plateformes de streaming */
+.Streaming a {
+    font-size: 2em; /* Taille des icônes des plateformes */
+}
+
+/* Animation pour les icônes */
+.fa-spotify, .fa-deezer, .fa-youtube {
+    transition: transform 0.3s;
+}
+
+/* Icône Spotify */
+.fa-spotify {
+    color: #00ff15; /* Couleur vert */
+}
+
+/* Icône Deezer */
+.fa-deezer {
+    color: #ae35ff; /* Couleur violet */
+}
+
+/* Icône YouTube */
+.fa-youtube {
+    color: #ff0000; /* Couleur rouge */
+}
+
+/* État des icônes au survol */
+.Streaming a:hover .fa-spotify, 
+.Streaming a:hover .fa-deezer, 
+.Streaming a:hover .fa-youtube {
+    transform: scale(1.2); /* Agrandit les icônes au survol */
+}
+
+/* Conteneur du menu déroulant */
+.dropdown-container {
+    position: absolute; /* Positionnement relatif au conteneur parent */
+    bottom: 8px; /* Place en bas du conteneur */
+    right: 15px; /* Aligne à droite */
+    cursor: pointer; /* Change le curseur pour indiquer l'interactivité */
+}
+
+/* Bouton pour ouvrir le menu déroulant */
+.dropdown-toggle {
+    font-size: 1.5rem; /* Taille de l'icône */
+    color: #fff; /* Couleur blanche */
+}
+
+/* Contenu du menu déroulant */
+.dropdown-content {
+    display: none; /* Masque le contenu par défaut */
+    background-color: #fff; /* Fond blanc */
+    color: #000; /* Texte noir */
+    border: 1px solid #000; /* Bordure noire */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 10px; /* Espacement intérieur */
+    position: absolute; /* Positionnement indépendant */
+    z-index: 10; /* Au-dessus des autres éléments mais pas de la navbar */
+    left: 0; /* Aligné à gauche par défaut */
+    width: 370px; /* Largeur du menu */
+    max-height: 260px; /* Limite la hauteur du menu */
+    overflow-y: auto; /* Ajoute un défilement si le contenu dépasse */
+    overflow-x: hidden; /* Empêche le défilement horizontal */
+    word-wrap: break-word; /* Coupe les mots longs */
+    font-size: 1rem; /* Taille du texte */
+}
+
+/* Contenu du menu déroulant dans un conteneur à droite */
+.music-right .dropdown-content {
+    left: auto; /* Désactive l'alignement gauche */
+    right: 0; /* Aligne à droite */
+}
+
+/* Barre de défilement personnalisée */
+::-webkit-scrollbar {
+    width: 10px; /* Largeur de la barre */
+}
+
+/* Piste de la barre de défilement */
+::-webkit-scrollbar-track {
+    background: #1b022f; /* Couleur de la piste */
+}
+
+/* Poignée de la barre de défilement */
+::-webkit-scrollbar-thumb {
+    background: #c2c2c2; /* Couleur de la poignée */
+    border-radius: 10px; /* Coins arrondis */
+}
+
+/* Arrière plan du popup */
+#popup-overlay {
+    position: fixed; /* Position fixe pour qu'il ne bouge pas */
+    top: 0; /* Permet de couvrire toute la fenêtre */
+    left: 0; /* Permet de couvrire toute la fenêtre */
+    right: 0; /* Permet de couvrire toute la fenêtre */
+    bottom: 0; /* Permet de couvrire toute la fenêtre */
+    background-color: rgba(0, 0, 0, 0.7); /* Fond semi-transparent noir */
+    z-index: 1001; /* Au-dessus de tous les éléments */
+    display: none; /* Masqué par défaut */
+}
+
+/* État ouvert du popup */
+#popup-overlay.open {
+    display: block; /* Change l"état du display pour afficher le popup */
+}
+
+/* Styles pour le contenu du popup */
+.popup-content {
+    max-width: 600px; /* Largeur maximale */
+    width: 90%; /* Largeur du popup */
+    max-height: 90vh; /* Limite la hauteur du popup */
+    padding: 20px; /* Espacement intérieur */
+    box-sizing: border-box; /* Inclut les bordures et le padding dans les dimensions totales */
+    background-color: #fff; /* Fond blanc */
+    position: fixed ; /* Position fixe par rapport a la fenêtre */
+    top: 50%; /* Centre verticalement le popup */
+    left: 50%; /* Centre horizontalement le popup */
+    transform: translate(-50%, -50%); /* Ajuste pour centrer parfaitement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ajoute une ombre légère */
+    border-radius: 10px; /* Coins arrondis pour un effet plus doux */
+    text-align: left; /* Titres alignés à gauche */
+    overflow-y: auto; /* Permet un scroll vertical si le contenu dépasse */
+    overflow-x: hidden; /* Désactive le scroll horizontal */
+}
+
+/* Styles pour le titre du formulaire */
+.popup-content h2 {
+    margin-bottom: 20px; /* Ajoute un espace sous le titre */
+    color: #000; /* Couleur noire */
+}
+
+/* Styles pour les labels */
+.popup-content label {
+    font-weight: bold; /* Met le texte en gras */
+    color: #000; /* Couleur noire */
+}
+
+/* Styles pour les champs de formulaire */
+.popup-content input[type="text"],
+.popup-content input[type="number"],
+.popup-content input[type="url"],
+.popup-content textarea,
+.popup-content select {
+    width: calc(100% - 20px); /* Largeur du champ ajustée pour l'espacement */
+    margin: 5px; /* Espacement tout autour */
+    padding: 5px; /* Espacement intérieur */
+    border: 1px solid #ccc;  /* Bordure grise */
+    border-radius: 5px; /* Coins arrondis */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1); /* Ombre */
+    font-size: 16px; /* Taille du texte */
+    color: #000; /* Couleur noir pour le texte */
+    margin-left: auto; /* Permet de centrer horizontalement */
+    margin-right: auto; /* Permet de centrer horizontalement */
+}
+
+/* Styles pour les champs de fichier */
+.popup-content input[type="file"] {
+    width: calc(100% - 20px);
+    margin: 5px 0;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+/* Limiter l'extension du textarea */
+.popup-content textarea {
+    max-width: calc(100% - 20px); /* Largeur maximale pour éviter le débordement */
+    max-height: 80px; /* Limite la hauteur */
+    resize: vertical; /* Permet seulement le redimensionnement vertical */
+}
+
+/* Styles pour les champs au focus */
+.popup-content input[type="text"]:focus,
+.popup-content input[type="number"]:focus,
+.popup-content input[type="url"]:focus,
+.popup-content textarea:focus,
+.popup-content select:focus {
+    border-color: #5e239d; /* Couleur violet pour la bordure */
+    outline: none; /* Supprime l'effet de focus par défaut */
+    box-shadow: 0 0 5px rgba(94, 35, 157, 0.5); /* Ajoute une lueur violette */
+}
+
+/* Styles pour le bouton de soumission */
+#submitButton {
+    color: #fff; /* Couleur blanche pour le texte */
+    background: #5e239d; /* Fond violet */
+    padding: 10px 20px; /* Espacement intérieur du bouton */
+    border-radius: 5px; /* Coins arrondis */
+    border: none; /* Supprime les bordures par défaut */
+    cursor: pointer; /* Change le curseur au survol */
+    transition: background-color 0.3s; /* Animation de la couleur */
+    font-size: 16px; /* Taille du texte */
+    width: 100%; /* Prend toute la largeur */
+    text-align: center; /* Centre le texte horizontalement */
+}
+
+/* Survol du bouton de soumission */
+#submitButton:hover {
+    background-color: #4b1a7a; /* Change la couleur de fond au survol */
+}
+
+/* Styles pour le bouton de fermeture du popup */
+.popup-exit {
+    position: fixed; /* Position fixe pour ne pas qu'il bouge */
+    top: 10px; /* Décalé de 10px par rapport au haut */
+    right: 10px; /* Décalé de 10px par rapport à droite */
+    text-decoration: none; /* Supprime le soulignement */
+    color: #fff; /* Couleur blanche pour le texte */
+    background: #5e239d; /* Fond violet */
+    padding: 5px 10px; /* Espacement intérieur */
+    border-radius: 5px; /* Coins légèrement arrondis */
+    transition: background-color 0.3s; /* Animation */
+    font-size: 16px; /* Taille du texte */
+}
+
+/* Survol du bouton de de fermeture du popup */
+.popup-exit:hover {
+    background-color: #4b1a7a; /* Couleur plus foncée au survol */
+}
+
+/* Styles pour le bouton pour ouvrir le popup */
+.btnPopup {
+    position: fixed; /* Position fixe par rapport à la fenêtre */
+    right: 20px; /* Aligné à 20px du bord droit */
+    bottom: 20px; /* Aligné à 20px du bas */
+    background: #fff; /* Fond blanc */
+    border-radius: 50%; /* Forme circulaire */
+    margin: 20px; /* Espacement autour */
+    padding: 10px; /* Espacement intérieur */
+    font-size: 1.7rem; /* Taille de l'icône */
+    width: 55px; /* Largeur fixe pour garder une forme ronde */
+    height: 55px; /* Hauteur fixe pour garder une forme ronde */
+    display: flex; /* Centrer l'icône à l'intérieur */
+    align-items: center; /* Centrer l'icône verticalement */
+    justify-content: center; /* Centrer l'icône horizontalement */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);  /* Ajoute une ombre */
+    transition: background-color 0.3s, color 0.3s; /* Animation des couleurs */
+    z-index: 11; /* Mettre au dessus des crédits */
+}
+
+/* Survole du bouton pour ouvrir le popup */
+.btnPopup:hover {
+    background-color: #b6b6b6; /* Changer la couleur de fond lors du survol */
+    color: #000; /* Changer la couleur de l'icône lors du survol */
+}
+
+/* Style pour indiquer les champs obligatoires */
+.obligatoire {
+    color: #ff0000; /* Couleur rouge */
+}
+
+/* Image du logo vers la fin de la page */
+.nextDrillEnd {
+    width: 30%; /* Définit la largeur */
+    display: block; /* Permet le fonctionnement de la marge auto */
+    margin: auto; /* Centre horizontalement l'image */
+    margin-top: 5px; /* Ajoute une marge en haut */
+    margin-bottom: 55px; /* Ajoute une marge en bas */
+}
+
+/* Crédits du site */
+.credit {
+    background-color: #1b022f; /* Couleur de fond sombre */
+    color: #fff; /* Couleur du texte blanche */
+    padding: 15px; /* Espacement interne autour du contenu */
+    border-top: 2px solid #fff; /* Ligne en haut avec une couleur blanche pour démarquer le footer */
+}
+
+/* Titre h3 pour le crédit */
+.credit h3 {
+    cursor: pointer; /* Change le curseur */
+    font-size: 1.2rem; /* Taille de la police */
+    margin: 0; /* Supprime la marge par défaut */
+    display: flex; /* Permet d'aligner le contenu horizontalement */
+    justify-content: center; /* Centre horizontalement */
+    align-items: center; /* Centre verticalement */
+    gap: 8px; /* Espacement entre les éléments */
+    color: #fff; /* Couleur du texte blanche */
+}
+
+/* Contenu déroulant des crédits */
+.credit-content {
+    display: none; /* Masque le contenu des crédits par défaut */
+    background-color: rgba(0, 0, 0, 0.5); /* Couleur de fond noire semi-transparente */
+    color: #ffffff; /* Couleur du texte blanche */
+    margin-top: 10px; /* Espacement au-dessus de la section déroulée */
+    padding: 15px; /* Espacement interne */
+    border-radius: 8px; /* Coins arrondis */
+    text-align: center; /* Centre le texte */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3); /* Ombre */
+}
+
+/* Titre h4 pour les sous-sections */
+.credit-content h3 {
+    padding-top: 10px;
+    margin-bottom: 20px; /* Espacement en bas du titre */
+}
+
+/* Liens dans les crédits */
+.credit-content a {
+    color: #000; /* Couleur du texte noire */
+    background-color: #fff; /* Fond blanc */
+    text-decoration: none; /* Supprime le soulignement des liens */
+    padding: 10px 20px; /* Espacement interne */
+    border-radius: 20px; /* Coins arrondis */
+    margin: 5px; /* Espacement entre les boutons */
+    font-weight: bold; /* Texte des boutons en gras */
+    display: inline-block; /* Permet aux liens de se comporter comme des blocs tout en restant en ligne */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Animation douce pour les changements de couleur au survol */
+}
+
+/* Liens au survol */
+.credit-content a:hover {
+    background-color: #ae35ff; /* Change la couleur du fond */
+    color: #ffffff; /* Change la couleur du texte */
+}
+
+/* Contenu au survol */
+.credit:hover .credit-content {
+    display: block; /* Afficher le contenu des crédits au survol */
+}
+
+/* Listes dans les crédits */
+.credit-content ul {
+    list-style-type: none; /* Supprime les puces des listes */
+    padding: 0; /* Supprime l'espacement par défaut des listes */
+    margin: 10px 0; /* Ajoute un espacement vertical autour des listes */
+    display: flex; /* Permet de placer les éléments sur une seule ligne */
+    justify-content: center; /* Centre horizontalement les éléments de la liste */
+    gap: 10px; /* Espacement horizontal entre les éléments */
+}
+
+/* Aligner les paragraphes et les listes */
+.credit-content p,
+.credit-content ul {
+    margin-left: auto; /* Centre horizontalement */
+    margin-right: auto; /* Centre horizontalement */
+}
